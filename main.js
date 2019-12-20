@@ -84,7 +84,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 9) && (currentTime.charAt(5) === "A")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 0) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") == 0) {
                 $(this).next().css("background-color", "red");
@@ -94,7 +94,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 10) && (currentTime.charAt(6) === "A")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 1) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 1) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -107,7 +107,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 11) && (currentTime.charAt(6) === "A")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 2) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 2) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -120,7 +120,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 12) && (currentTime.charAt(6) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 3) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 3) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -133,7 +133,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 1) && (currentTime.charAt(5) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 4) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 4) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -146,7 +146,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 2) && (currentTime.charAt(5) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 5) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 5) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -159,7 +159,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 3) && (currentTime.charAt(5) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 6) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 6) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -172,7 +172,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 4) && (currentTime.charAt(5) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 7) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 7) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
@@ -185,7 +185,7 @@ function checkCurrentTime() {
     else if ((currentTimeChars == 5) && (currentTime.charAt(5) === "P")) {
         $(".hour").each(function () {
             if ($(this).attr("data-name") > 8) {
-                $(this).next().css("background-color", "green");
+                $(this).next().css("background-color", "yellowgreen");
             }
             else if ($(this).attr("data-name") < 8) {
                 $(this).next().css("background-color", "rgb(207, 204, 204)");
