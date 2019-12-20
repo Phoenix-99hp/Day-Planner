@@ -1,5 +1,4 @@
 $("#currentDay").text(moment().format("MMMM Do YYYY"));
-// var currentTime = moment().format('LT');
 
 plans = [];
 
@@ -68,123 +67,132 @@ function storePlans() {
 
 function checkCurrentTime() {
     var currentTime = moment().format('LT');
-    if ((currentTime.charAt(5) == "P") && (currentTime.charAt(0) < 12)) {
+    var currentTimeChars = currentTime.charAt(0) + currentTime.charAt(1);
+    if (currentTimeChars.includes(":") === true) {
+        var slicedTimeChar = currentTimeChars.slice(0, 1);
+        currentTimeChars = slicedTimeChar;
+    }
+    if ((currentTime.charAt(5) == "P") && (currentTimeChars < 12) && (currentTimeChars > 5) || ((currentTime.charAt(6) == "P") && (currentTimeChars < 12) && (currentTimeChars > 5))) {
         $(".time-block").css("background-color", "rgb(207, 204, 204)");
     }
-    else if ((currentTime.charAt(0) === 9) && (currentTime.charAt(5) === "A")) {
-        if ($(".hour").attr("data-name") > 0) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") === 0) {
-            $(".hour").css("backgroun-color", "red");
-        }
+    else if ((currentTime.charAt(0) < 9) && (currentTime.charAt(5) === "A")) {
+        $(".time-block").css("background-color", "rgb(207, 204, 204)");
     }
-    else if ((currentTime.charAt(0) === 10) && (currentTime.charAt(5) === "A")) {
-        if ($(".hour").attr("data-name") > 1) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 1) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 1) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 12) && (currentTime.charAt(6) === "A")) {
+        $(".time-block").css("background-color", "rgb(207, 204, 204)");
     }
-    else if ((currentTime.charAt(0) === 11) && (currentTime.charAt(5) === "A")) {
-        if ($(".hour").attr("data-name") > 2) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 2) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 2) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 9) && (currentTime.charAt(5) === "A")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 0) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") == 0) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 12) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 3) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 3) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 3) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 10) && (currentTime.charAt(6) === "A")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 1) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 1) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 1) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 1) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 4) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 4) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 4) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 11) && (currentTime.charAt(6) === "A")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 2) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 2) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 2) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 2) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 5) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 5) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 5) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 12) && (currentTime.charAt(6) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 3) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 3) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 3) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 3) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 6) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 6) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 6) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 1) && (currentTime.charAt(5) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 4) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 4) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 4) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 4) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 7) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 7) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 7) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 2) && (currentTime.charAt(5) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 5) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 5) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 5) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
-    else if ((currentTime.charAt(0) === 5) && (currentTime.charAt(5) === "P")) {
-        if ($(".hour").attr("data-name") > 8) {
-            $(".hour").next().css("background-color", "green");
-        }
-        else if ($(".hour").attr("data-name") < 8) {
-            $(".hour").next().css("background-color", "rgb(207, 204, 204)");
-        }
-        else if ($(".hour").attr("data-name") === 8) {
-            $(".hour").next().css("background-color", "red");
-        }
+    else if ((currentTimeChars == 3) && (currentTime.charAt(5) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 6) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 6) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 6) {
+                $(this).next().css("background-color", "red");
+            }
+        })
+    }
+    else if ((currentTimeChars == 4) && (currentTime.charAt(5) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 7) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 7) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 7) {
+                $(this).next().css("background-color", "red");
+            }
+        })
+    }
+    else if ((currentTimeChars == 5) && (currentTime.charAt(5) === "P")) {
+        $(".hour").each(function () {
+            if ($(this).attr("data-name") > 8) {
+                $(this).next().css("background-color", "green");
+            }
+            else if ($(this).attr("data-name") < 8) {
+                $(this).next().css("background-color", "rgb(207, 204, 204)");
+            }
+            else if ($(this).attr("data-name") == 8) {
+                $(this).next().css("background-color", "red");
+            }
+        })
     }
 }
-
-
-// //     else if ((currentTime.charAt(0) === 9) && (currentTime.charAt(5) === "A")) {
-// //         if ($(".time-block").parent().text().charAt(0) === 9) {
-// //             $(".time-block").css("background-color", "green");
-// //         }
-// //         else {
-// //             $(".time-block").css("background-color", "rgb(207, 204, 204)")
-// //         }
-// //     }
-// // }
-
-
-// if (currentTime.charAt(0) + " " + currentTime.charAt(5) + currentTime.charAt(6)) == $("#nineAM")
-
-
-// for (var i = 0; i < $(".hour").length; i++) {
-
-
-// }
