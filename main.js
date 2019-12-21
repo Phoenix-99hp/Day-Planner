@@ -19,6 +19,22 @@ $(".saveBtn").on("click", function (e) {
     storePlans();
 })
 
+$("#clear").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    plans.splice(0, 9);
+    $("textarea").val("");
+    storePlans();
+})
+
+$("#saveAll").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(".saveBtn").each(function () {
+        $(this).click();
+    })
+})
+
 function renderPlans() {
     for (var i = 0; i < plans.length; i++) {
 
